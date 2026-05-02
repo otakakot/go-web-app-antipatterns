@@ -1,6 +1,6 @@
 module github.com/ThreeDotsLabs/go-web-app-antipatterns/04-transactions/tests
 
-go 1.22.0
+go 1.25.1
 
 require (
 	github.com/google/uuid v1.3.1

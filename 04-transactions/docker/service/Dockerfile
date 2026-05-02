@@ -1,4 +1,4 @@
-FROM golang:1.22
+FROM golang:1.25.1
 RUN go install github.com/cespare/reflex@latest
 COPY reflex.conf /
 COPY entrypoint.sh /

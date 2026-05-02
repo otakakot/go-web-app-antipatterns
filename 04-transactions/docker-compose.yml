@@ -64,6 +64,19 @@ services:
       - apps
     restart: unless-stopped
 
+  05_tx_provider_ex:
+    build: ./docker/service
+    volumes:
+      - ./05-tx-provider-ex:/app
+      - go_pkg:/go/pkg
+      - go_cache:/go-cache
+    working_dir: /app
+    ports:
+      - 8106:8080
+    networks:
+      - apps
+    restart: unless-stopped
+
   postgres:
     image: postgres:15
     environment:

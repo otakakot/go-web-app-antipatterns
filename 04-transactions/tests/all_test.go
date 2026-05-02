@@ -5,7 +5,6 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 	"testing"
@@ -29,6 +28,7 @@ func TestAll(t *testing.T) {
 		{Name: "03-tx-in-repo", URL: "http://localhost:8103"},
 		{Name: "04-update-func-closure", URL: "http://localhost:8104"},
 		{Name: "05-tx-provider", URL: "http://localhost:8105"},
+		{Name: "05-tx-provider-ex", URL: "http://localhost:8106"},
 	}
 	for _, tc := range testCases {
 		t.Run(tc.Name, func(t *testing.T) {
@@ -52,7 +52,7 @@ func TestAll(t *testing.T) {
 func getDB(t *testing.T) *sql.DB {
 	t.Helper()
 
-	db, err := sql.Open("postgres", fmt.Sprintf("postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"))
+	db, err := sql.Open("postgres", "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable")
 	require.NoError(t, err)
 
 	return db
